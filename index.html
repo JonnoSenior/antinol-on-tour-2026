@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Antinol on Tour splash · v6.4 · 2026-04-27 -->
+<!-- Antinol on Tour splash · v6.5 · 2026-04-27 -->
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
@@ -332,8 +332,12 @@
     border-top:1px solid var(--vp-rule);
   }
   .vp-reveal__head{
+    position:sticky;
+    top:var(--vp-nav-h);
+    z-index:3;
+    background:var(--vp-grey);
     max-width:var(--vp-maxw);margin:0 auto clamp(28px,5vh,48px);
-    padding:0 var(--vp-gutter);
+    padding:clamp(14px,2.4vh,22px) var(--vp-gutter);
     display:grid;grid-template-columns:1fr;gap:clamp(20px,4vw,48px);
   }
   @media (min-width:860px){
@@ -356,10 +360,11 @@
     display:grid;grid-template-columns:1fr;gap:0;position:relative;
   }
 
-  /* sticky video stage — locked + visible across the whole reveal section */
+  /* sticky video stage — locked + visible across the whole reveal section.
+     Top offset clears the nav AND the sticky .vp-reveal__head above it. */
   .vp-stage{
     position:sticky;
-    top:calc(var(--vp-nav-h) + 8px);
+    top:calc(var(--vp-nav-h) + 200px);
     z-index:2;
     width:100%;
     pointer-events:none;
@@ -464,7 +469,7 @@
     }
     .vp-stage{
       position:sticky;
-      top:12svh;
+      top:calc(var(--vp-nav-h) + 180px);
       margin-bottom:0;
     }
     .vp-stage__inner{max-height:74svh}
@@ -1232,7 +1237,7 @@
   <div class="vp-foot__bottom">
     <span>© 2026 Vetz Petz · Antinol®. Made in New Zealand.</span>
     <span>Keep Happiness in Motion</span>
-    <span class="vp-foot__version">Splash v6.4</span>
+    <span class="vp-foot__version">Splash v6.5</span>
   </div>
 </footer>
 
