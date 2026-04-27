@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Antinol on Tour splash · v6.6 · 2026-04-27 -->
+<!-- Antinol on Tour splash · v6.7 · 2026-04-27 -->
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
@@ -357,25 +357,27 @@
     padding:clamp(60px,10vh,100px) 0 0;
     border-top:1px solid var(--vp-rule);
   }
+  /* Section heading — flows inside .vp-reveal__left (which is the
+     sticky unit). Was its own sticky element in v6.5/v6.6; v6.7
+     folds it into the left column so heading + video pin together. */
   .vp-reveal__head{
-    position:sticky;
-    top:var(--vp-nav-h);
-    z-index:3;
-    background:var(--vp-grey);
-    max-width:var(--vp-maxw);margin:0 auto clamp(28px,5vh,48px);
-    padding:clamp(14px,2.4vh,22px) var(--vp-gutter);
-    display:grid;grid-template-columns:1fr;gap:clamp(20px,4vw,48px);
-  }
-  @media (min-width:860px){
-    .vp-reveal__head{grid-template-columns:1fr 1fr;align-items:end}
+    display:flex;
+    flex-direction:column;
+    gap:.9rem;
+    margin-bottom:clamp(18px,3vh,28px);
   }
   .vp-reveal__head h2{
-    font-size:clamp(2rem,6vw,4.6rem);
+    font-size:clamp(2rem,5.4vw,4.2rem);
     color:var(--vp-navy);line-height:.98;letter-spacing:-.025em;
+    margin:0;
   }
-  .vp-reveal__head p{
+
+  /* Section intro paragraph — first item in the steps column so it
+     scrolls away with the steps instead of staying with the heading. */
+  .vp-reveal__intro{
     font-size:.95rem;color:var(--vp-charcoal);line-height:1.6;
     max-width:480px;font-weight:500;
+    margin-bottom:clamp(24px,5vh,48px);
   }
 
   .vp-reveal__wrap{
@@ -386,12 +388,22 @@
     display:grid;grid-template-columns:1fr;gap:0;position:relative;
   }
 
-  /* sticky video stage — locked + visible across the whole reveal section.
-     Top offset clears the nav AND the sticky .vp-reveal__head above it. */
-  .vp-stage{
+  /* Sticky left column — pins heading + video as a single unit while
+     the steps on the right scroll past. */
+  .vp-reveal__left{
     position:sticky;
-    top:calc(var(--vp-nav-h) + 200px);
+    top:calc(var(--vp-nav-h) + 12px);
+    align-self:start;
+    background:var(--vp-grey);
     z-index:2;
+    padding-bottom:clamp(20px,4vh,32px);
+  }
+
+  /* Video stage — no longer sticky on its own; the parent
+     .vp-reveal__left handles pinning. */
+  .vp-stage{
+    position:relative;
+    z-index:1;
     width:100%;
     pointer-events:none;
   }
@@ -486,22 +498,17 @@
     width:100%;height:100%;object-fit:cover;
   }
 
-  /* desktop: video sticky on left, steps on right */
+  /* desktop: heading + video pinned on left, steps scroll on right */
   @media (min-width:980px){
     .vp-reveal__grid{
       grid-template-columns:1fr 1fr;
       gap:clamp(40px,6vw,80px);
       align-items:start;
     }
-    .vp-stage{
-      position:sticky;
-      top:calc(var(--vp-nav-h) + 180px);
-      margin-bottom:0;
-    }
-    .vp-stage__inner{max-height:74svh}
+    .vp-stage__inner{max-height:62svh}
     .vp-steps{margin-top:0}
     .vp-step{min-height:88svh;padding:clamp(80px,12vh,140px) 0}
-    .vp-step:first-child{padding-top:5vh}
+    .vp-step:first-child{padding-top:0}
   }
 
   .vp-reveal__foot{padding:24px 0 64px}
@@ -975,31 +982,30 @@
 </section>
 
 
-<!-- ============== TRAILER REVEAL — sticky video + scrub ============== -->
+<!-- ============== TRAILER REVEAL — sticky left col (heading + video), scrolling steps on right (v6.7) ============== -->
 <section class="vp-reveal" id="trailer">
-  <div class="vp-reveal__head">
-    <div>
-      <span class="vp-eyebrow vp-rise">Inside the trailer</span>
-      <h2 class="vp-rise" data-d="1" style="margin-top:1rem">Six things,<br>one trailer.</h2>
-    </div>
-    <p class="vp-rise" data-d="2">A 7.5-metre rolling stage built for the K9 sporting circuit. Scroll on — we'll open it up.</p>
-  </div>
-
   <div class="vp-reveal__wrap">
     <div class="vp-reveal__grid">
 
-      <!-- sticky video stage -->
-      <div class="vp-stage">
-        <div class="vp-stage__inner">
-          <video id="vp-trailer-video" class="vp-stage__video" muted playsinline preload="auto">
-            <source src="https://cdn.shopify.com/videos/c/o/v/56c601227c674c70b7b09db80a7b4522.mp4" type="video/mp4">
-          </video>
-          <div class="vp-stage__progress" id="vp-progress" data-progress="0"></div>
+      <!-- LEFT column: heading + video pin together while steps scroll past -->
+      <div class="vp-reveal__left">
+        <div class="vp-reveal__head">
+          <span class="vp-eyebrow vp-rise">Inside the trailer</span>
+          <h2 class="vp-rise" data-d="1">Six things,<br>one trailer.</h2>
+        </div>
+        <div class="vp-stage">
+          <div class="vp-stage__inner">
+            <video id="vp-trailer-video" class="vp-stage__video" muted playsinline preload="auto">
+              <source src="https://cdn.shopify.com/videos/c/o/v/56c601227c674c70b7b09db80a7b4522.mp4" type="video/mp4">
+            </video>
+            <div class="vp-stage__progress" id="vp-progress" data-progress="0"></div>
+          </div>
         </div>
       </div>
 
-      <!-- scroll-driven step cards -->
+      <!-- RIGHT column: section intro + scroll-driven step cards -->
       <div class="vp-steps">
+        <p class="vp-reveal__intro vp-rise" data-d="2">A 7.5-metre rolling stage built for the K9 sporting circuit. Scroll on — we'll open it up.</p>
 
         <article class="vp-step" data-step="1">
           <div class="vp-step__index">01 · Slatmill</div>
@@ -1262,7 +1268,7 @@
   <div class="vp-foot__bottom">
     <span>© 2026 Vetz Petz · Antinol®. Made in New Zealand.</span>
     <span>Keep Happiness in Motion</span>
-    <span class="vp-foot__version">Splash v6.6</span>
+    <span class="vp-foot__version">Splash v6.7</span>
   </div>
 </footer>
 
