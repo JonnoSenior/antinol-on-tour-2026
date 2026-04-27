@@ -1,0 +1,1341 @@
+<!doctype html>
+<!-- Antinol on Tour splash · v6.4 · 2026-04-27 -->
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+<title>Antinol on Tour 2026 — Twelve Events. One Trailer. Around Australia.</title>
+<meta name="description" content="Antinol® on Tour 2026: a 7.5m mobile event trailer travelling Australia for the K9 sporting circuit.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="video" href="https://cdn.shopify.com/videos/c/o/v/56c601227c674c70b7b09db80a7b4522.mp4">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    /* Official Vetz Petz palette */
+    --vp-red:#F50002;
+    --vp-red-deep:#C70002;
+    --vp-navy:#1A2E3B;
+    --vp-ink:#0d1820;
+    --vp-charcoal:#3a4047;
+    --vp-charcoal-soft:#6a7178;
+    --vp-white:#FFFFFF;
+    --vp-grey:#F2F2F2;
+    --vp-yellow:#E5F221;
+    --vp-rule:#e6e8eb;
+    --vp-rule-strong:#cfd3d8;
+
+    --vp-font:'Montserrat', system-ui, -apple-system, sans-serif;
+    --vp-maxw:1280px;
+    --vp-gutter:clamp(20px, 5vw, 56px);
+    --vp-ease:cubic-bezier(.2,.7,.2,1);
+    --vp-radius:14px;
+    --vp-radius-lg:22px;
+    --vp-nav-h:80px;
+  }
+
+  *,*::before,*::after{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  body{
+    margin:0;
+    font-family:var(--vp-font);
+    color:var(--vp-charcoal);
+    background:var(--vp-white);
+    line-height:1.55;
+    overflow-x:clip;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    font-weight:500;
+  }
+  img,svg,video{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit}
+  h1,h2,h3,h4,h5{margin:0;font-family:var(--vp-font);font-weight:900;line-height:1;letter-spacing:-.022em;color:var(--vp-navy)}
+  p{margin:0}
+  ::selection{background:var(--vp-yellow);color:var(--vp-ink)}
+
+  .vp-mark{
+    background:linear-gradient(180deg, transparent 55%, var(--vp-yellow) 55%, var(--vp-yellow) 92%, transparent 92%);
+    padding:0 .14em;
+    color:inherit;font-weight:inherit;
+  }
+
+  .vp-eyebrow{
+    font-size:.72rem;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;color:var(--vp-red);
+    display:inline-flex;align-items:center;gap:.7rem;
+  }
+  .vp-eyebrow::before{content:"";width:18px;height:2px;background:currentColor;display:inline-block}
+  .vp-eyebrow--navy{color:var(--vp-navy)}
+
+  .vp-rise{opacity:0;transform:translateY(28px);transition:opacity .9s var(--vp-ease), transform .9s var(--vp-ease)}
+  .vp-rise.is-in{opacity:1;transform:translateY(0)}
+  .vp-rise[data-d="1"]{transition-delay:.08s}
+  .vp-rise[data-d="2"]{transition-delay:.16s}
+  .vp-rise[data-d="3"]{transition-delay:.24s}
+  .vp-rise[data-d="4"]{transition-delay:.32s}
+  .vp-rise[data-d="5"]{transition-delay:.40s}
+
+  @media (prefers-reduced-motion:reduce){
+    .vp-rise{opacity:1;transform:none;transition:none}
+  }
+
+  /* buttons */
+  .vp-btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+    padding:.95rem 1.4rem;
+    border-radius:999px;
+    font-family:var(--vp-font);
+    font-weight:700;font-size:.85rem;letter-spacing:.04em;
+    cursor:pointer;border:1.5px solid transparent;
+    transition:transform .25s var(--vp-ease), background .25s var(--vp-ease), color .25s var(--vp-ease), border-color .25s var(--vp-ease);
+    text-transform:uppercase;
+    min-height:48px;
+  }
+  .vp-btn::after{content:"→";font-weight:600;transition:transform .25s var(--vp-ease)}
+  .vp-btn:hover::after{transform:translateX(4px)}
+  .vp-btn--red{background:var(--vp-red);color:#fff;border-color:var(--vp-red)}
+  .vp-btn--red:hover{background:var(--vp-red-deep);border-color:var(--vp-red-deep)}
+  .vp-btn--ghost{background:transparent;color:var(--vp-navy);border-color:var(--vp-navy)}
+  .vp-btn--ghost:hover{background:var(--vp-navy);color:#fff}
+  .vp-btn--white{background:#fff;color:var(--vp-ink);border-color:#fff}
+  .vp-btn--white:hover{background:var(--vp-yellow);border-color:var(--vp-yellow)}
+  .vp-btn--full{width:100%}
+
+  /* ===== NAV ===== */
+  .vp-nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    padding:14px var(--vp-gutter);
+    display:flex;align-items:center;justify-content:space-between;
+    gap:14px;
+    background:rgba(255,255,255,0);
+    transition:background .3s var(--vp-ease), border-color .3s var(--vp-ease), backdrop-filter .3s, padding .3s var(--vp-ease);
+    border-bottom:1px solid transparent;
+  }
+  .vp-nav.is-scrolled{
+    background:rgba(255,255,255,.94);
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+    border-bottom-color:var(--vp-rule);
+    padding-top:10px;padding-bottom:10px;
+  }
+  .vp-nav__brand{display:flex;align-items:center;gap:14px;min-width:0}
+  .vp-nav__logo{
+    height:48px;width:auto;
+    aspect-ratio: 2545.67 / 1555.94;
+    transition:height .3s var(--vp-ease);
+    display:block;
+  }
+  .vp-nav__logo use{pointer-events:none}
+  .vp-nav.is-scrolled .vp-nav__logo{height:38px}
+  @media (min-width:768px){
+    .vp-nav__logo{height:64px}
+    .vp-nav.is-scrolled .vp-nav__logo{height:48px}
+  }
+  .vp-svg-defs{position:absolute;width:0;height:0;pointer-events:none;overflow:hidden}
+  .vp-nav__tour{
+    font-weight:800;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--vp-navy);
+    padding-left:14px;border-left:1px solid var(--vp-rule-strong);
+    display:flex;align-items:center;gap:.5rem;
+    white-space:nowrap;
+  }
+  .vp-nav__tour i{width:6px;height:6px;background:var(--vp-red);border-radius:50%;display:inline-block}
+  .vp-nav__cta{
+    font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:.65rem 1rem;border-radius:999px;
+    background:var(--vp-red);color:#fff;
+    transition:background .25s var(--vp-ease);
+    flex-shrink:0;
+  }
+  .vp-nav__cta:hover{background:var(--vp-red-deep)}
+  @media (max-width:560px){
+    .vp-nav__tour{display:none}
+  }
+
+  /* ===== HERO ===== */
+  .vp-hero{
+    position:relative;background:#fff;
+    padding:calc(var(--vp-nav-h) + 30px) var(--vp-gutter) clamp(40px,6vh,80px);
+    overflow:hidden;
+  }
+  .vp-hero__inner{
+    max-width:var(--vp-maxw);margin:0 auto;
+    display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);
+    align-items:center;
+  }
+  @media (min-width:980px){
+    .vp-hero__inner{grid-template-columns:1.05fr 1.1fr}
+  }
+
+  .vp-hero__copy{display:flex;flex-direction:column;gap:1.4rem;max-width:620px}
+  .vp-hero__copy h1{
+    font-size:clamp(2rem, 5.8vw, 4.2rem);
+    color:var(--vp-navy);
+    letter-spacing:-.028em;line-height:.96;
+  }
+  .vp-hero__sub{
+    font-size:clamp(1.15rem, 2.2vw, 1.7rem);
+    color:var(--vp-charcoal);
+    font-weight:700;
+    line-height:1.25;
+    letter-spacing:-.01em;
+    margin-top:-.4rem;
+  }
+  .vp-hero__lede{
+    font-size:clamp(1rem,1.4vw,1.15rem);
+    color:var(--vp-charcoal);line-height:1.55;max-width:540px;
+    font-weight:500;
+  }
+  .vp-hero__meta{
+    display:flex;gap:32px;flex-wrap:wrap;
+    padding:18px 0;
+    border-top:1px solid var(--vp-rule);
+    border-bottom:1px solid var(--vp-rule);
+  }
+  .vp-hero__metric{display:flex;flex-direction:column;gap:2px}
+  .vp-hero__metric b{
+    font-size:clamp(1.6rem,3vw,2.2rem);
+    font-weight:900;color:var(--vp-navy);line-height:1;letter-spacing:-.025em;
+  }
+  .vp-hero__metric span{
+    font-size:.7rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--vp-charcoal-soft);
+  }
+  .vp-hero__cta{display:flex;flex-wrap:wrap;gap:.7rem}
+
+  .vp-hero__visual{
+    position:relative;
+    aspect-ratio: 16 / 10;
+    width:100%;
+    border-radius:var(--vp-radius-lg);
+    overflow:hidden;
+    background:var(--vp-grey);
+    box-shadow:0 28px 32px rgba(26,46,59,.18);
+  }
+  .vp-hero__video{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+
+  /* word-by-word reveal */
+  .vp-words{display:inline}
+  .vp-words .w{display:inline-block;opacity:0;transform:translateY(.5em);transition:opacity .8s var(--vp-ease), transform .8s var(--vp-ease)}
+  .is-loaded .vp-words .w{opacity:1;transform:translateY(0)}
+  .vp-words .w:nth-child(1){transition-delay:.10s}
+  .vp-words .w:nth-child(2){transition-delay:.18s}
+  .vp-words .w:nth-child(3){transition-delay:.26s}
+  .vp-words .w:nth-child(4){transition-delay:.34s}
+  .vp-words .w:nth-child(5){transition-delay:.42s}
+
+  /* ===== EVENTS ===== */
+  .vp-events{
+    background:#fff;
+    padding:clamp(80px,12vh,140px) 0;
+    border-top:1px solid var(--vp-rule);
+  }
+  .vp-events__head{
+    max-width:var(--vp-maxw);margin:0 auto clamp(40px,7vh,72px);
+    padding:0 var(--vp-gutter);
+    display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap;
+  }
+  .vp-events__title{display:flex;flex-direction:column;gap:1rem;max-width:760px}
+  .vp-events__head h2{
+    font-size:clamp(2rem,5.5vw,4rem);
+    color:var(--vp-navy);line-height:.98;letter-spacing:-.028em;
+  }
+  .vp-events__sub{
+    font-size:clamp(1.05rem,1.8vw,1.4rem);
+    color:var(--vp-charcoal);font-weight:700;
+    line-height:1.3;letter-spacing:-.01em;
+  }
+  .vp-events__head p{
+    font-size:.95rem;color:var(--vp-charcoal);max-width:340px;line-height:1.6;
+  }
+
+  .vp-events__list{
+    max-width:var(--vp-maxw);margin:0 auto;
+    padding:0 var(--vp-gutter);
+    border-top:2px solid var(--vp-navy);
+  }
+  .vp-events__row{
+    display:grid;grid-template-columns:120px 60px 1fr auto;
+    align-items:center;gap:clamp(12px,3vw,32px);
+    padding:clamp(20px,3vh,30px) 0;
+    border-bottom:1px solid var(--vp-rule);
+    transition:padding-left .4s var(--vp-ease), background .4s var(--vp-ease);
+    cursor:pointer;
+  }
+  .vp-events__row:hover{padding-left:.8rem;background:var(--vp-grey)}
+  .vp-events__date{display:flex;flex-direction:column}
+  .vp-events__date b{
+    font-size:1.1rem;font-weight:900;color:var(--vp-navy);
+    letter-spacing:-.01em;text-transform:uppercase;line-height:1;
+  }
+  .vp-events__date span{
+    font-size:.75rem;font-weight:600;color:var(--vp-charcoal-soft);margin-top:4px;
+  }
+  .vp-events__state{
+    font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--vp-navy);
+    background:var(--vp-grey);
+    padding:.4rem .55rem;border-radius:4px;text-align:center;
+    border:1px solid var(--vp-rule);
+  }
+  .vp-events__name{display:flex;flex-direction:column;gap:4px}
+  .vp-events__name b{
+    font-family:var(--vp-font);
+    font-size:clamp(1.15rem,2.6vw,1.7rem);
+    color:var(--vp-navy);font-weight:800;letter-spacing:-.018em;line-height:1.05;
+  }
+  .vp-events__name span{
+    font-size:.85rem;color:var(--vp-charcoal);font-weight:500;line-height:1.45;
+  }
+  .vp-events__arrow{
+    width:42px;height:42px;border-radius:50%;
+    border:1.5px solid var(--vp-navy);
+    display:grid;place-items:center;color:var(--vp-navy);
+    transition:background .25s var(--vp-ease), color .25s var(--vp-ease), border-color .25s var(--vp-ease);
+    font-size:1rem;
+  }
+  .vp-events__row:hover .vp-events__arrow{background:var(--vp-red);border-color:var(--vp-red);color:#fff}
+  @media (max-width:760px){
+    .vp-events__row{
+      grid-template-columns:80px 1fr;
+      grid-template-rows:auto auto;
+      row-gap:8px;column-gap:18px;
+    }
+    .vp-events__date{grid-column:1;grid-row:1}
+    .vp-events__state{grid-column:1;grid-row:2;justify-self:start}
+    .vp-events__name{grid-column:2;grid-row:1 / span 2}
+    .vp-events__arrow{display:none}
+  }
+
+  .vp-events__foot{
+    max-width:var(--vp-maxw);margin:32px auto 0;
+    padding:0 var(--vp-gutter);
+    display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+  }
+  .vp-events__foot p{
+    font-size:.85rem;color:var(--vp-charcoal-soft);font-weight:600;letter-spacing:.04em;
+  }
+
+  /* ===== TRAILER REVEAL — sticky video + scrub ===== */
+  .vp-reveal{
+    position:relative;
+    background:var(--vp-grey);
+    padding:clamp(60px,10vh,100px) 0 0;
+    border-top:1px solid var(--vp-rule);
+  }
+  .vp-reveal__head{
+    max-width:var(--vp-maxw);margin:0 auto clamp(28px,5vh,48px);
+    padding:0 var(--vp-gutter);
+    display:grid;grid-template-columns:1fr;gap:clamp(20px,4vw,48px);
+  }
+  @media (min-width:860px){
+    .vp-reveal__head{grid-template-columns:1fr 1fr;align-items:end}
+  }
+  .vp-reveal__head h2{
+    font-size:clamp(2rem,6vw,4.6rem);
+    color:var(--vp-navy);line-height:.98;letter-spacing:-.025em;
+  }
+  .vp-reveal__head p{
+    font-size:.95rem;color:var(--vp-charcoal);line-height:1.6;
+    max-width:480px;font-weight:500;
+  }
+
+  .vp-reveal__wrap{
+    max-width:var(--vp-maxw);margin:0 auto;
+    padding:0 var(--vp-gutter);
+  }
+  .vp-reveal__grid{
+    display:grid;grid-template-columns:1fr;gap:0;position:relative;
+  }
+
+  /* sticky video stage — locked + visible across the whole reveal section */
+  .vp-stage{
+    position:sticky;
+    top:calc(var(--vp-nav-h) + 8px);
+    z-index:2;
+    width:100%;
+    pointer-events:none;
+  }
+  .vp-stage__inner{
+    width:100%;
+    aspect-ratio: 16 / 10;
+    max-height:42svh;
+    border-radius:var(--vp-radius-lg);
+    overflow:hidden;
+    background:var(--vp-navy);
+    box-shadow:0 18px 28px rgba(26,46,59,.18);
+    position:relative;
+  }
+  .vp-stage__video{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+  }
+  .vp-stage__progress{
+    position:absolute;left:14px;right:14px;bottom:14px;
+    height:3px;border-radius:999px;
+    background:#ffffff30;
+    overflow:hidden;
+  }
+  .vp-stage__progress::after{
+    content:"";position:absolute;inset:0 100% 0 0;
+    background:var(--vp-yellow);
+    transition:right .15s linear;
+  }
+  .vp-stage__progress[data-progress="0"]::after{right:100%}
+  .vp-stage__progress[data-progress="1"]::after{right:83%}
+  .vp-stage__progress[data-progress="2"]::after{right:67%}
+  .vp-stage__progress[data-progress="3"]::after{right:50%}
+  .vp-stage__progress[data-progress="4"]::after{right:34%}
+  .vp-stage__progress[data-progress="5"]::after{right:17%}
+  .vp-stage__progress[data-progress="6"]::after{right:0%}
+
+  .vp-steps{position:relative;z-index:1;margin-top:clamp(20px,4vh,40px)}
+  .vp-step{
+    min-height:75svh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:clamp(36px,6vh,60px) 0;
+    max-width:560px;
+  }
+  .vp-step__index{
+    font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--vp-red);margin-bottom:1.2rem;
+    display:inline-flex;align-items:center;gap:.7rem;
+  }
+  .vp-step__index::before{content:"";width:18px;height:2px;background:currentColor;display:inline-block}
+  .vp-step h3{
+    font-size:clamp(1.9rem,5vw,3.2rem);
+    color:var(--vp-navy);
+    margin-bottom:.6em;line-height:1;letter-spacing:-.025em;
+  }
+  .vp-step__lede{
+    font-size:clamp(1rem,1.3vw,1.1rem);
+    color:var(--vp-navy);font-weight:700;
+    margin-bottom:1rem;line-height:1.45;max-width:460px;
+  }
+  .vp-step__body{
+    font-size:.95rem;color:var(--vp-charcoal);line-height:1.7;max-width:440px;
+  }
+  .vp-step__photos{
+    margin-top:1.4rem;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px;
+    max-width:520px;
+  }
+  .vp-step__photo{
+    aspect-ratio: 4 / 3;
+    border-radius:var(--vp-radius);
+    overflow:hidden;
+    background:var(--vp-rule);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:12px;
+    border:1px dashed var(--vp-rule-strong);
+  }
+  .vp-step__photo span{
+    font-size:.62rem;
+    font-weight:700;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--vp-charcoal-soft);
+    line-height:1.3;
+  }
+  .vp-step__photo img{
+    width:100%;height:100%;object-fit:cover;
+  }
+
+  /* desktop: video sticky on left, steps on right */
+  @media (min-width:980px){
+    .vp-reveal__grid{
+      grid-template-columns:1fr 1fr;
+      gap:clamp(40px,6vw,80px);
+      align-items:start;
+    }
+    .vp-stage{
+      position:sticky;
+      top:12svh;
+      margin-bottom:0;
+    }
+    .vp-stage__inner{max-height:74svh}
+    .vp-steps{margin-top:0}
+    .vp-step{min-height:88svh;padding:clamp(80px,12vh,140px) 0}
+    .vp-step:first-child{padding-top:5vh}
+  }
+
+  .vp-reveal__foot{padding:24px 0 64px}
+
+  /* ===== WHAT IS ANTINOL ===== */
+  .vp-what{
+    padding:clamp(80px,12vh,140px) var(--vp-gutter);
+    background:#fff;
+    border-top:1px solid var(--vp-rule);
+  }
+  .vp-what__inner{
+    max-width:var(--vp-maxw);margin:0 auto;
+    display:grid;grid-template-columns:1fr;gap:clamp(40px,6vw,80px);
+    align-items:center;
+  }
+  @media (min-width:880px){
+    .vp-what__inner{grid-template-columns:1fr 1fr}
+  }
+  .vp-what__copy{display:flex;flex-direction:column;gap:1.2rem;max-width:560px}
+  .vp-what__copy h2{
+    font-size:clamp(2rem, 5.5vw, 4rem);
+    color:var(--vp-navy);line-height:1;letter-spacing:-.025em;
+  }
+  .vp-what__copy p{
+    font-size:1rem;color:var(--vp-charcoal);line-height:1.7;font-weight:500;
+  }
+  .vp-what__copy strong{color:var(--vp-navy);font-weight:800}
+  .vp-what__stats{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:.5rem;
+  }
+  .vp-what__stat{
+    background:var(--vp-grey);border:1px solid var(--vp-rule);
+    padding:18px 14px;border-radius:var(--vp-radius);
+  }
+  .vp-what__stat b{
+    display:block;font-size:clamp(1.4rem,2.6vw,1.9rem);
+    color:var(--vp-navy);font-weight:900;line-height:1;
+    margin-bottom:.4rem;letter-spacing:-.02em;
+  }
+  .vp-what__stat span{
+    font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--vp-charcoal-soft);line-height:1.3;
+  }
+
+  .vp-what__visual{
+    position:relative;
+    aspect-ratio: 4 / 5;
+    border-radius:var(--vp-radius-lg);
+    background:var(--vp-grey);
+    overflow:hidden;
+    display:flex;align-items:center;justify-content:center;
+    border:1px solid var(--vp-rule);
+    padding:20px;
+  }
+  .vp-what__visual::before{
+    content:"100% NATURAL";
+    position:absolute;top:18px;left:18px;
+    font-size:.7rem;font-weight:800;letter-spacing:.18em;
+    color:var(--vp-ink);background:var(--vp-yellow);
+    padding:.4rem .7rem;border-radius:4px;z-index:2;
+  }
+  .vp-what__visual img{
+    max-width:78%;max-height:88%;object-fit:contain;
+  }
+
+  /* ===== PILLARS ===== */
+  .vp-pillars{
+    background:var(--vp-navy);color:#fff;
+    padding:clamp(80px,14vh,180px) var(--vp-gutter);
+    position:relative;overflow:hidden;
+  }
+  .vp-pillars__inner{max-width:var(--vp-maxw);margin:0 auto;position:relative}
+  .vp-pillars__head{margin-bottom:clamp(40px,8vh,90px);max-width:680px}
+  .vp-pillars__head h2{
+    font-size:clamp(2.2rem,6.5vw,5rem);color:#fff;
+    margin-top:1rem;line-height:1;letter-spacing:-.025em;
+  }
+  .vp-pillars__list{display:flex;flex-direction:column;border-top:1px solid #ffffff20}
+  .vp-pillars__row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:clamp(20px,3.5vh,32px) 0;
+    border-bottom:1px solid #ffffff20;gap:24px;
+    transition:padding-left .5s var(--vp-ease);
+  }
+  .vp-pillars__row:hover{padding-left:1.5rem}
+  .vp-pillars__row h3{
+    font-size:clamp(2rem,7.5vw,5.5rem);color:#fff;
+    line-height:1;flex:1;letter-spacing:-.03em;font-weight:900;
+    transition:color .3s var(--vp-ease);
+  }
+  .vp-pillars__row:hover h3{color:var(--vp-yellow)}
+  .vp-pillars__row p{
+    font-size:.92rem;color:#aab4bd;
+    max-width:280px;text-align:right;line-height:1.55;font-weight:500;
+  }
+  @media (max-width:720px){
+    .vp-pillars__row{flex-direction:column;align-items:flex-start;gap:8px}
+    .vp-pillars__row p{text-align:left}
+  }
+
+  /* ===== STARTER PACKS ===== */
+  .vp-starter{
+    background:#fff;
+    padding:clamp(80px,12vh,140px) var(--vp-gutter);
+  }
+  .vp-starter__inner{max-width:var(--vp-maxw);margin:0 auto}
+  .vp-starter__head{
+    display:flex;justify-content:space-between;align-items:flex-end;
+    gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px,6vh,60px);
+  }
+  .vp-starter__head h2{
+    font-size:clamp(2rem,5.5vw,4rem);color:var(--vp-navy);max-width:680px;
+    line-height:1;letter-spacing:-.025em;
+  }
+  .vp-starter__head p{
+    font-size:.95rem;color:var(--vp-charcoal);max-width:340px;line-height:1.55;
+  }
+
+  .vp-products{display:grid;gap:18px;grid-template-columns:1fr}
+  @media (min-width:680px){
+    .vp-products{grid-template-columns:repeat(2,1fr)}
+  }
+  .vp-product{
+    background:#fff;border:1px solid var(--vp-rule);
+    border-radius:var(--vp-radius-lg);
+    padding:24px;
+    display:flex;flex-direction:column;gap:14px;
+    transition:transform .35s var(--vp-ease), box-shadow .35s var(--vp-ease), border-color .35s var(--vp-ease);
+    position:relative;overflow:hidden;
+  }
+  .vp-product:hover{
+    transform:translateY(-4px);
+    box-shadow:0 24px 36px -16px rgba(26,46,59,.15);
+    border-color:var(--vp-rule-strong);
+  }
+  .vp-product__badge{
+    position:absolute;top:18px;right:18px;
+    background:var(--vp-yellow);color:var(--vp-ink);
+    padding:.3rem .6rem;border-radius:4px;
+    font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    z-index:2;
+  }
+  .vp-product__img{
+    aspect-ratio: 1 / 1;
+    background:var(--vp-grey);
+    border-radius:var(--vp-radius);
+    display:flex;align-items:center;justify-content:center;
+    overflow:hidden;padding:18px;
+  }
+  .vp-product__img img{
+    max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
+    transition:transform .5s var(--vp-ease);
+  }
+  .vp-product:hover .vp-product__img img{transform:scale(1.04)}
+  .vp-product__name{
+    font-size:1.1rem;color:var(--vp-navy);font-weight:800;
+    line-height:1.2;letter-spacing:-.01em;
+  }
+  .vp-product__sub{
+    font-size:.85rem;color:var(--vp-charcoal);line-height:1.5;font-weight:500;
+  }
+  .vp-product__price{
+    display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;
+    margin-top:auto;padding-top:6px;
+  }
+  .vp-product__price b{
+    font-size:1.6rem;font-weight:900;color:var(--vp-navy);letter-spacing:-.02em;
+  }
+  .vp-product__price span{
+    font-size:.78rem;color:var(--vp-charcoal-soft);font-weight:600;
+  }
+  .vp-product__price s{
+    color:var(--vp-charcoal-soft);text-decoration-thickness:1.5px;
+    text-decoration-color:var(--vp-red);font-weight:700;
+  }
+  .vp-product__btn{
+    display:flex;justify-content:space-between;align-items:center;
+    background:var(--vp-navy);color:#fff;
+    padding:.85rem 1.05rem;border-radius:999px;
+    font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    transition:background .25s var(--vp-ease);
+  }
+  .vp-product__btn:hover{background:var(--vp-ink)}
+  .vp-product__btn::after{content:"→";font-weight:600}
+
+  .vp-starter__guarantee{
+    margin-top:24px;
+    background:var(--vp-grey);border:1px solid var(--vp-rule);
+    border-radius:var(--vp-radius-lg);
+    padding:24px 26px;
+    display:flex;justify-content:space-between;align-items:center;
+    gap:20px;flex-wrap:wrap;
+  }
+  .vp-starter__guarantee h4{
+    font-size:1.1rem;font-weight:800;color:var(--vp-navy);
+    margin-bottom:.25rem;letter-spacing:-.01em;
+  }
+  .vp-starter__guarantee p{
+    font-size:.88rem;color:var(--vp-charcoal);font-weight:500;
+  }
+
+  /* ===== CTA ===== */
+  .vp-cta{
+    background:var(--vp-navy);color:#fff;
+    padding:clamp(80px,14vh,160px) var(--vp-gutter);
+    position:relative;overflow:hidden;
+  }
+  .vp-cta__inner{max-width:var(--vp-maxw);margin:0 auto;position:relative}
+  .vp-cta__head{margin-bottom:clamp(40px,7vh,80px);max-width:760px}
+  .vp-cta__head h2{
+    font-size:clamp(2.2rem,6.5vw,5rem);color:#fff;
+    margin-bottom:.4em;line-height:1;letter-spacing:-.025em;
+  }
+  .vp-cta__head p{color:#aab4bd;font-size:1.05rem;max-width:520px;line-height:1.6;font-weight:500}
+
+  .vp-cta__stack{display:grid;gap:16px;grid-template-columns:1fr}
+  @media (min-width:880px){
+    .vp-cta__stack{grid-template-columns:1.15fr 1fr 1fr;gap:20px}
+  }
+  .vp-cta__card{
+    background:transparent;border:1px solid #ffffff20;
+    border-radius:var(--vp-radius-lg);
+    padding:clamp(24px,3.5vh,38px);
+    display:flex;flex-direction:column;gap:14px;
+    transition:background .35s var(--vp-ease), border-color .35s var(--vp-ease), transform .35s var(--vp-ease);
+    min-height:240px;
+  }
+  .vp-cta__card:hover{background:#ffffff08;border-color:#ffffff36;transform:translateY(-3px)}
+  .vp-cta__card--primary{background:var(--vp-red);border-color:var(--vp-red)}
+  .vp-cta__card--primary:hover{background:var(--vp-red-deep);border-color:var(--vp-red-deep)}
+  .vp-cta__card .vp-cta__tag{
+    font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--vp-yellow);
+  }
+  .vp-cta__card--primary .vp-cta__tag{color:#ffffff;opacity:.9}
+  .vp-cta__card h3{
+    font-size:clamp(1.6rem,2.8vw,2.1rem);color:#fff;
+    line-height:1.05;letter-spacing:-.02em;
+  }
+  .vp-cta__card p{color:#aab4bd;font-size:.95rem;line-height:1.55;flex:1;font-weight:500}
+  .vp-cta__card--primary p{color:#ffffffd6}
+
+  .vp-form{display:flex;flex-direction:column;gap:10px;margin-top:auto}
+  .vp-form input{
+    background:transparent;border:none;border-bottom:1px solid #ffffff28;
+    color:#fff;padding:.7rem 0;
+    font-family:var(--vp-font);font-size:.95rem;font-weight:500;
+    outline:none;transition:border-color .25s var(--vp-ease);
+  }
+  .vp-form input::placeholder{color:#ffffff66}
+  .vp-form input:focus{border-color:var(--vp-yellow)}
+  .vp-form button{
+    margin-top:6px;align-self:flex-start;
+    background:var(--vp-yellow);color:var(--vp-ink);border:none;
+    padding:.85rem 1.3rem;border-radius:999px;
+    font-weight:700;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;
+    cursor:pointer;font-family:var(--vp-font);
+    transition:background .25s var(--vp-ease);
+  }
+  .vp-form button:hover{background:#eef725}
+
+  /* ===== MERCH ===== */
+  .vp-merch{
+    background:var(--vp-grey);
+    padding:clamp(36px,6vh,56px) var(--vp-gutter);
+    border-top:1px solid var(--vp-rule);border-bottom:1px solid var(--vp-rule);
+  }
+  .vp-merch__inner{
+    max-width:var(--vp-maxw);margin:0 auto;
+    display:flex;justify-content:space-between;align-items:center;
+    gap:24px;flex-wrap:wrap;
+  }
+  .vp-merch__copy{display:flex;flex-direction:column;gap:.3rem;max-width:600px}
+  .vp-merch__copy h4{
+    font-size:1.4rem;color:var(--vp-navy);font-weight:800;letter-spacing:-.015em;line-height:1.15;
+  }
+  .vp-merch__copy p{font-size:.9rem;color:var(--vp-charcoal);line-height:1.5}
+
+  /* ===== FOOTER ===== */
+  .vp-foot{
+    background:var(--vp-ink);color:#9aa6ae;
+    padding:clamp(40px,6vh,60px) var(--vp-gutter) 28px;
+  }
+  .vp-foot__inner{
+    max-width:var(--vp-maxw);margin:0 auto;
+    display:grid;grid-template-columns:1fr;gap:32px;
+  }
+  @media (min-width:760px){
+    .vp-foot__inner{grid-template-columns:1.2fr 1fr 1fr}
+  }
+  .vp-foot__brand{display:flex;flex-direction:column;gap:14px;max-width:380px}
+  .vp-foot__logo{
+    height:64px;width:auto;
+    aspect-ratio: 2545.67 / 1555.94;
+    align-self:flex-start;
+    --vp-logo-c1:#ffffff;
+    --vp-logo-c2:#ffffff;
+    opacity:.95;
+    display:block;
+  }
+  @media (min-width:768px){
+    .vp-foot__logo{height:80px}
+  }
+  .vp-foot__brand p{font-size:.85rem;line-height:1.55;color:#9aa6ae}
+  .vp-foot__url{
+    margin-top:.4rem;
+    font-size:.78rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--vp-yellow);
+  }
+  .vp-foot h5{
+    font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    color:#fff;margin-bottom:14px;
+  }
+  .vp-foot ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:8px}
+  .vp-foot a:hover{color:#fff}
+  .vp-foot__bottom{
+    max-width:var(--vp-maxw);margin:32px auto 0;padding-top:20px;
+    border-top:1px solid #ffffff14;
+    display:flex;justify-content:space-between;align-items:center;
+    gap:16px;flex-wrap:wrap;
+    font-size:.72rem;letter-spacing:.06em;color:#5a6770;
+  }
+  .vp-foot__version{
+    color:#3a4047;font-family:var(--vp-font);
+    font-size:.65rem;letter-spacing:.18em;text-transform:uppercase;
+  }
+
+</style>
+</head>
+<body>
+
+<!-- Reusable Vetz Petz logo symbol -->
+<svg class="vp-svg-defs" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><symbol id="vp-logo" viewBox="0 0 2545.67 1555.94"><path fill="var(--vp-logo-c1, #F50002)" d="M1635.07,1078.15h-640.73c-54.23,0-98.43-44.2-98.43-98.43v-64.26h23.63v64.26c0,41.31,33.66,74.8,74.8,74.8h640.73c41.31,0,74.8-33.66,74.8-74.8v-448.8c0-41.31-33.66-74.8-74.8-74.8h-640.73c-41.31,0-74.8,33.66-74.8,74.8v66.64h-23.63v-66.64c0-54.23,44.2-98.43,98.43-98.43h640.73c54.23,0,98.43,44.2,98.43,98.43v448.8c.17,54.4-44.03,98.43-98.43,98.43Z"/><path fill="var(--vp-logo-c2, #E5F221)" d="M873.98,854.45h68.51v-63.07h64.77v-68.51h-64.6v-64.6h-68.68v64.6h-62.73v68.51h62.73v63.07h0Z"/><path fill="var(--vp-logo-c1, #F50002)" d="M1121.33,550.46c4.76-3.4,6.97-6.8,6.97-10.71,0-5.95-4.42-10.37-13.09-13.09-8.67-2.72-22.44-4.25-40.97-4.25s-31.45,1.87-41.14,5.78c-9.69,3.74-14.28,9.35-14.28,16.15,0,5.78,2.72,9.01,8.16,10.2,4.59.68,8.16,2.38,10.71,4.93s5.44,7.31,8.33,14.11l55.93,123.25c2.21,5.27,4.25,8.67,5.78,10.54,1.53,2.04,3.57,3.74,6.29,5.27,3.57,1.87,7.48,2.72,11.73,2.72,5.44,0,9.69-1.53,13.09-4.42,3.57-2.89,6.97-8.33,10.88-16.15l62.9-127.16c4.08-8.16,7.48-13.43,10.37-15.47,1.7-1.19,5.27-2.04,10.71-2.72,7.82-.85,11.73-4.76,11.73-11.73,0-5.78-2.89-9.69-8.84-12.07-5.95-2.38-16.15-3.57-30.77-3.57-29.07,0-43.52,5.44-43.52,16.32,0,3.91,2.38,6.97,6.97,9.52,4.25,2.21,6.46,4.76,6.46,7.99,0,1.53-.51,3.74-1.87,6.63-1.19,2.89-5.44,12.24-12.58,28.22-4.08,8.84-7.31,14.79-9.69,17.85-2.38,2.89-4.93,4.42-8.16,4.42s-5.95-2.72-8.33-8.5l-17-38.59c-1.7-3.74-2.38-6.63-2.38-8.5.17-2.21,1.87-4.42,5.61-6.97Z"/><path fill="var(--vp-logo-c1, #F50002)" d="M1261.75,652.29h62.9c3.91,0,6.97-1.87,9.52-5.61,2.38-3.74,3.57-8.5,3.57-14.28,0-7.31-2.04-14.45-6.29-21.93-3.74-6.63-8.5-12.24-14.45-17-11.9-9.69-26.35-14.45-43.18-14.45-10.54,0-20.4,1.87-29.75,5.78-12.07,4.93-22.1,12.75-30.09,23.12-9.01,12.07-13.77,25.33-13.77,40.46,0,11.05,2.55,21.76,7.99,31.96,4.25,7.48,9.35,13.94,15.64,19.21,12.58,10.88,28.39,16.32,47.09,16.32s34.85-5.44,49.13-15.98c7.99-5.95,12.07-12.24,12.07-18.53,0-2.89-1.19-5.95-3.4-8.84-2.21-2.72-4.42-4.25-6.8-4.25-1.87,0-4.25,1.19-7.31,3.23-3.4,2.38-7.82,4.42-12.92,6.12-5.27,1.7-10.03,2.38-14.28,2.38-7.31,0-13.94-2.55-20.23-7.82-6.29-5.27-9.52-10.54-9.52-16.32,0-2.55,1.36-3.57,4.08-3.57ZM1256.99,620.16c-.34-4.08,1.19-7.82,3.74-11.39,2.72-3.91,6.8-5.95,11.9-5.95,4.42,0,8.16,1.53,10.88,4.59,2.72,2.89,4.08,6.97,4.08,11.9,0,5.27-2.72,7.99-8.5,7.99h-13.6c-3.23,0-5.44-.51-6.63-1.7-1.19-1.19-1.87-2.89-1.87-5.44Z"/><path fill="var(--vp-logo-c1, #F50002)" d="M1379.39,703.97c8.67,8.16,20.23,12.07,34.51,12.07,18.02,0,33.32-5.44,45.9-16.15,6.12-4.93,9.01-10.37,9.01-15.98,0-2.89-.85-5.95-2.55-8.33-1.87-2.55-3.74-3.91-5.95-3.91-1.36,0-2.55.34-4.08,1.36-5.78,3.23-10.37,4.76-13.77,4.76-4.08,0-7.48-1.7-10.2-4.93-2.72-3.4-3.91-7.82-3.91-13.09v-45.73c0-2.38.34-4.25,1.36-4.93.85-.85,2.55-1.36,4.93-1.36h24.14c3.4,0,5.61-.68,6.8-2.38,1.36-1.7,1.87-4.59,1.87-8.84v-7.99c0-3.91-.51-6.46-1.53-7.82-.85-1.36-3.23-1.87-6.46-1.87h-24.82c-2.72,0-4.59-.34-5.44-1.19-.85-.68-1.36-2.55-1.36-5.27v-18.02c.17-3.23-.17-5.27-.85-6.29-.68-1.19-2.21-1.53-4.42-1.53h-10.71c-2.21,0-4.08.34-5.61,1.36l-61.37,38.59c-2.04,1.36-2.89,3.23-3.23,5.95v5.95c0,3.23.34,5.27,1.19,5.95.68.85,2.38,1.36,4.93,1.36h13.77c2.04,0,3.4.17,3.91.68.51.51.68,1.87.68,3.91v61.88c.34,13.09,4.59,23.8,13.26,31.79Z"/><path fill="var(--vp-logo-c1, #F50002)" d="M1498.9,577.49c-1.19-.34-1.87-.51-2.72-.51-2.55,0-5.78,3.4-9.69,10.03-5.78,9.69-8.5,17.85-8.5,24.65,0,4.25,1.36,8.16,4.25,11.39,2.72,3.4,5.78,4.93,9.52,4.93s6.97-2.89,9.69-8.84c3.57-7.48,6.97-12.41,9.86-14.62,2.89-2.04,7.65-3.23,14.28-3.23,7.65,0,11.39,1.87,11.39,5.78,0,1.02-.85,2.72-2.38,5.44l-51.85,87.72c-1.87,3.23-2.72,5.78-2.72,8.16s.68,4.25,1.87,5.61c.85.85,1.53,1.19,2.38,1.36s3.23.17,7.14.17h87.55c4.25,0,9.01.34,13.94,1.36,1.7.34,3.06.34,4.08.34,3.57,0,7.31-2.72,11.22-8.33,5.61-7.99,8.5-17.34,8.5-28.05,0-5.27-1.19-9.18-3.4-11.9-2.38-2.72-5.78-4.08-10.54-4.08-2.04,0-3.91.51-5.1,1.7-1.19,1.19-2.72,3.06-3.91,5.95-3.4,7.31-6.63,12.24-10.2,14.45-1.7,1.19-4.25,1.87-7.99,2.72-3.57.85-7.31,1.19-10.71,1.19-9.01,0-13.6-1.53-13.6-4.59,0-1.87,2.55-6.97,7.48-15.81l44.37-76.67c2.38-4.25,3.57-7.31,3.57-9.01,0-2.72-.85-5.1-2.72-6.63-1.87-1.7-4.25-2.55-6.97-2.55-.34,0-10.03.51-28.9,1.7-22.1,1.36-36.21,1.87-42.33,1.87-13.94.34-22.78-.34-26.86-1.7Z"/><path fill="var(--vp-logo-c1, #F50002)" d="M1517.09,846.95c-1.19-.34-1.87-.51-2.72-.51-2.55,0-5.78,3.4-9.69,10.03-5.78,9.69-8.5,17.85-8.5,24.65,0,4.25,1.36,8.16,4.25,11.39,2.89,3.23,5.78,4.93,9.52,4.93s6.97-2.89,9.69-8.84c3.57-7.48,6.97-12.41,9.86-14.62,2.89-2.04,7.65-3.23,14.28-3.23,7.65,0,11.39,1.87,11.39,5.78,0,1.02-.85,2.72-2.38,5.44l-51.85,87.89c-1.87,3.23-2.72,5.78-2.72,8.16s.68,4.25,1.87,5.61c.85.85,1.53,1.19,2.38,1.36.85.17,3.23.17,7.14.17h87.55c4.25,0,9.01.34,13.94,1.36,1.7.34,3.06.34,4.08.34,3.57,0,7.31-2.72,11.22-8.33,5.61-7.99,8.5-17.34,8.5-28.05,0-5.27-1.19-9.18-3.4-11.9-2.38-2.72-5.78-4.08-10.54-4.08-2.04,0-3.91.51-5.1,1.7s-2.72,3.06-3.91,5.95c-3.4,7.31-6.63,12.24-10.2,14.45-1.7,1.19-4.25,1.87-7.99,2.72-3.57.85-7.31,1.19-10.71,1.19-9.01,0-13.6-1.53-13.6-4.59,0-1.87,2.55-6.97,7.48-15.81l44.37-76.67c2.38-4.25,3.57-7.31,3.57-9.01,0-2.72-.85-5.1-2.72-6.63-1.87-1.7-4.25-2.55-6.97-2.55-.34,0-10.03.51-28.9,1.7-22.1,1.36-36.21,1.87-42.33,1.87-13.94.34-22.78-.34-26.86-1.87Z"/><path fill="var(--vp-logo-c1, #F50002)" d="M1070.5,800.88c-8.5-.17-13.77-.34-15.98-.34-6.29-.17-11.39.85-14.62,3.23-3.4,2.21-4.93,5.27-4.93,9.35,0,5.78,4.08,9.69,12.07,12.07,5.61,1.53,8.84,3.57,10.2,5.95s1.87,8.16,1.87,17.51v70.38c-.17,16.49-.51,26.35-1.19,29.24-.51,2.89-2.38,5.44-5.61,6.97-5.27,2.55-8.5,4.76-10.03,6.12-1.53,1.53-2.21,3.57-2.21,6.12,0,11.39,16.49,17,49.47,17,15.81,0,27.88-1.53,36.38-4.59,8.5-2.89,12.75-7.48,12.75-12.92,0-3.74-2.89-6.97-8.67-10.2-4.25-2.21-6.97-4.42-8.5-6.46-1.36-2.04-2.21-5.44-2.38-9.69l-.85-21.93v-.68c0-2.89,1.36-4.42,3.91-4.42.85,0,3.23.17,6.8.34,6.8.51,12.58.85,17.51.85,18.7,0,34.51-5.27,47.6-15.47,13.94-10.88,20.91-25.67,20.91-43.69,0-22.44-10.03-38.93-29.92-49.3-11.56-5.95-24.48-8.84-39.1-8.84-4.25,0-9.01.17-14.28.68-15.64,1.53-24.65,2.21-27.2,2.38-2.55.17-11.39.17-26.01.34h-7.99ZM1119.29,831.14c0-3.57,3.4-5.27,9.86-5.27,6.12,0,11.39,1.7,15.64,4.93,6.8,5.27,10.2,13.6,10.2,25.16s-2.89,19.04-8.67,23.97c-4.08,3.4-8.84,4.93-14.79,4.93-3.91,0-7.31-.51-9.86-1.87-1.53-.68-2.21-2.72-2.21-6.29v-45.56h-.17Z"/><path fill="var(--vp-logo-c1, #F50002)" d="M1279.6,921.75h62.9c3.91,0,6.97-1.87,9.52-5.61s3.57-8.5,3.57-14.28c0-7.31-2.04-14.45-6.29-21.93-3.4-6.63-8.16-12.41-14.11-17.17-11.9-9.69-26.35-14.45-43.18-14.45-10.54,0-20.4,1.87-29.75,5.78-12.07,4.93-22.1,12.75-30.09,23.12-9.01,12.07-13.77,25.33-13.77,40.46,0,11.05,2.55,21.76,7.99,31.96,4.08,7.65,9.01,14.11,15.13,19.55,12.58,10.88,28.39,16.32,47.09,16.32s34.85-5.44,49.13-15.98c7.99-5.95,12.07-12.24,12.07-18.53,0-2.89-1.19-5.95-3.4-8.84-2.21-2.72-4.42-4.25-6.8-4.25-1.87,0-4.25,1.19-7.31,3.23-3.4,2.38-7.82,4.42-12.92,6.12-5.27,1.7-10.03,2.38-14.28,2.38-7.31,0-13.94-2.55-20.23-7.82-6.29-5.27-9.52-10.54-9.52-16.32.17-2.72,1.53-3.74,4.25-3.74ZM1274.84,889.45c0-3.74,1.36-7.48,4.08-11.05,2.72-3.91,6.8-5.95,11.9-5.95,4.42,0,8.16,1.53,10.88,4.59,2.72,2.89,4.08,6.97,4.08,11.9-.34,4.93-3.23,7.82-8.84,7.82h-13.6c-3.23,0-5.44-.51-6.63-1.7-1.36-1.19-1.87-3.06-1.87-5.61Z"/><path fill="var(--vp-logo-c1, #F50002)" d="M1445.18,817.54c-.68-1.19-2.21-1.53-4.42-1.53h-10.71c-2.21,0-4.08.34-5.61,1.36l-61.37,38.59c-2.04,1.36-2.89,3.23-3.23,5.95v5.95c0,3.23.34,5.27,1.19,5.95.68.85,2.38,1.36,4.93,1.36h13.77c2.04,0,3.4.17,3.91.68s.68,1.87.68,3.91v61.88c0,13.09,4.25,23.97,12.92,31.96,8.67,8.16,20.23,12.07,34.51,12.07,18.02,0,33.32-5.44,45.9-16.15,6.12-4.93,9.01-10.37,9.01-15.98,0-2.89-.85-5.95-2.55-8.33-1.87-2.55-3.74-3.91-5.95-3.91-1.36,0-2.55.34-4.08,1.36-5.78,3.23-10.37,4.76-13.77,4.76-4.08,0-7.48-1.7-10.2-4.93-2.55-3.4-3.91-7.82-3.91-13.09v-45.73c0-2.38.34-4.25,1.36-4.93.85-.85,2.55-1.36,4.93-1.36h24.65c3.4,0,5.61-.68,6.8-2.38,1.36-1.7,1.87-4.59,1.87-8.84v-7.99c0-3.91-.51-6.46-1.53-7.82-.85-1.36-3.23-1.87-6.46-1.87h-24.82c-2.72,0-4.59-.34-5.44-1.19-.85-.68-1.36-2.55-1.36-5.27v-18.02c.17-3.23-.17-5.27-1.02-6.46Z"/><polygon fill="var(--vp-logo-c1, #F50002)" points="1648.5 984.14 1648.5 967.31 1654.45 967.31 1654.45 965.27 1640.34 965.27 1640.34 967.31 1646.12 967.31 1646.12 984.14 1648.5 984.14"/><path fill="var(--vp-logo-c1, #F50002)" d="M1659.72,967.82c.51,2.04,1.36,4.59,2.04,7.31l3.06,9.18h1.7l3.4-9.35c.85-2.55,1.7-4.93,2.38-7.31,0,2.55,0,5.78.34,8.33l.34,8.33h2.89l-1.36-19.04h-3.06l-3.4,9.18c-1.02,2.55-1.53,4.59-2.04,6.63-.34-2.04-1.02-4.08-1.7-6.63l-3.06-9.18h-3.06l-1.36,19.04h2.38l.51-7.99c-.34-3.06,0-6.12,0-8.5Z"/></symbol></svg>
+
+
+<nav class="vp-nav" id="vp-nav">
+  <div class="vp-nav__brand">
+    <svg class="vp-nav__logo" role="img" aria-label="Vetz Petz"><use href="#vp-logo"/></svg>
+    <span class="vp-nav__tour"><i></i>On Tour 2026</span>
+  </div>
+  <a class="vp-nav__cta" href="#events">Find an event</a>
+</nav>
+
+
+<!-- ============== HERO ============== -->
+<section class="vp-hero">
+  <div class="vp-hero__inner">
+    <div class="vp-hero__copy">
+      <span class="vp-eyebrow vp-rise" data-d="1">Antinol on Tour · 2026</span>
+      <h1>
+        <span class="vp-words">
+          <span class="w"><span class="vp-mark">Twelve</span></span>
+          <span class="w">events.</span>
+          <span class="w">One</span>
+          <span class="w">trailer.</span>
+        </span>
+      </h1>
+      <p class="vp-hero__sub vp-rise" data-d="2">Around Australia in 2026.</p>
+      <p class="vp-hero__lede vp-rise" data-d="2">Vetz Petz Antinol® is hitting the road for the 2026 K9 sporting circuit — twelve Tier 1 events across NSW, VIC and QLD. Wherever the dogs are, we are.</p>
+
+      <div class="vp-hero__meta vp-rise" data-d="3">
+        <div class="vp-hero__metric"><b>12</b><span>Events</span></div>
+        <div class="vp-hero__metric"><b>3</b><span>States</span></div>
+        <div class="vp-hero__metric"><b>9</b><span>Months on the road</span></div>
+      </div>
+
+      <div class="vp-hero__cta vp-rise" data-d="4">
+        <a class="vp-btn vp-btn--red" href="#events">View the calendar</a>
+        <a class="vp-btn vp-btn--ghost" href="#trailer">See inside the trailer</a>
+      </div>
+    </div>
+
+    <div class="vp-hero__visual vp-rise" data-d="3">
+      <video class="vp-hero__video" autoplay loop muted playsinline preload="auto" poster="">
+        <source src="https://cdn.shopify.com/videos/c/o/v/56c601227c674c70b7b09db80a7b4522.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== EVENTS ============== -->
+<section class="vp-events" id="events">
+  <div class="vp-events__head">
+    <div class="vp-events__title">
+      <span class="vp-eyebrow vp-rise vp-eyebrow--navy">The 2026 calendar</span>
+      <h2 class="vp-rise" data-d="1">Find us at <span class="vp-mark">twelve events.</span></h2>
+      <p class="vp-events__sub vp-rise" data-d="2">Across NSW, VIC and QLD. March through November.</p>
+    </div>
+    <p class="vp-rise" data-d="3">Tier 1 dog-sport events. Bring the dog. Bring the team. Drop in for warm-up, recovery, a chat, and a coffee.</p>
+  </div>
+
+  <div class="vp-events__list">
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Mar 2026</b><span>3 days</span></div>
+      <div class="vp-events__state">NSW</div>
+      <div class="vp-events__name"><b>Glenreagh Agility Trial</b><span>Three days of agility, jumping and games at Glenreagh Recreation Reserve.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Apr 2026</b><span>1 day</span></div>
+      <div class="vp-events__state">VIC</div>
+      <div class="vp-events__name"><b>Gold Rush</b><span>Going for the Golden Retriever world record — 1,500 Goldens in one place.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Apr 2026</b><span>1 day</span></div>
+      <div class="vp-events__state">VIC</div>
+      <div class="vp-events__name"><b>Adventure Dog</b><span>Muddy outdoor obstacle course raising funds for animals in need.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Apr 2026</b><span>4 days</span></div>
+      <div class="vp-events__state">NSW</div>
+      <div class="vp-events__name"><b>German Shepherd Nationals</b><span>400+ entries, up to 1,000 attendees from Australia and overseas.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>May 2026</b><span>3 days</span></div>
+      <div class="vp-events__state">NSW</div>
+      <div class="vp-events__name"><b>Lab Retriever Club Nationals</b><span>~150 Labradors travel in for Champ Show, obedience and RatG.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>May 2026</b><span>3 days</span></div>
+      <div class="vp-events__state">NSW</div>
+      <div class="vp-events__name"><b>Glenreagh Agility (Round 2)</b><span>Return visit to the Glenreagh Reserve circuit.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Jun 2026</b><span>2 days</span></div>
+      <div class="vp-events__state">QLD</div>
+      <div class="vp-events__name"><b>BDTC Agility Trial</b><span>Two-day trial designed as a key warm-up before Nationals.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Jun 2026</b><span>4 days</span></div>
+      <div class="vp-events__state">QLD</div>
+      <div class="vp-events__name"><b>Agility Nationals</b><span>The premier national championship — the country's top agility teams.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Jul 2026</b><span>3 days</span></div>
+      <div class="vp-events__state">QLD</div>
+      <div class="vp-events__name"><b>ASSA Nationals</b><span>National sled-dog championship across multiple disciplines on land.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Sep 2026</b><span>3 days</span></div>
+      <div class="vp-events__state">QLD</div>
+      <div class="vp-events__name"><b>Dog Sport Spring Spectacular</b><span>Public events, Dances with Dogs, interstate judges, elite dog sports.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Oct 2026</b><span>1 day</span></div>
+      <div class="vp-events__state">NSW</div>
+      <div class="vp-events__name"><b>United Retriever Club</b><span>Annual gundog-only event — multiple disciplines across a full day.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+    <a class="vp-events__row vp-rise" href="#">
+      <div class="vp-events__date"><b>Nov 2026</b><span>2 days</span></div>
+      <div class="vp-events__state">VIC</div>
+      <div class="vp-events__name"><b>Flyball Nationals</b><span>High-energy national championship — head-to-head relay racing.</span></div>
+      <div class="vp-events__arrow">→</div>
+    </a>
+  </div>
+
+  <div class="vp-events__foot">
+    <p>NSW · 5 events &nbsp;·&nbsp; VIC · 3 events &nbsp;·&nbsp; QLD · 4 events</p>
+    <a class="vp-btn vp-btn--ghost" href="#scan-form">Get event reminders</a>
+  </div>
+</section>
+
+
+<!-- ============== TRAILER REVEAL — sticky video + scrub ============== -->
+<section class="vp-reveal" id="trailer">
+  <div class="vp-reveal__head">
+    <div>
+      <span class="vp-eyebrow vp-rise">Inside the trailer</span>
+      <h2 class="vp-rise" data-d="1" style="margin-top:1rem">Six things,<br>one trailer.</h2>
+    </div>
+    <p class="vp-rise" data-d="2">A 7.5-metre rolling stage built for the K9 sporting circuit. Scroll on — we'll open it up.</p>
+  </div>
+
+  <div class="vp-reveal__wrap">
+    <div class="vp-reveal__grid">
+
+      <!-- sticky video stage -->
+      <div class="vp-stage">
+        <div class="vp-stage__inner">
+          <video id="vp-trailer-video" class="vp-stage__video" muted playsinline preload="auto">
+            <source src="https://cdn.shopify.com/videos/c/o/v/56c601227c674c70b7b09db80a7b4522.mp4" type="video/mp4">
+          </video>
+          <div class="vp-stage__progress" id="vp-progress" data-progress="0"></div>
+        </div>
+      </div>
+
+      <!-- scroll-driven step cards -->
+      <div class="vp-steps">
+
+        <article class="vp-step" data-step="1">
+          <div class="vp-step__index">01 · Slatmill</div>
+          <h3 class="vp-rise">Warm up<br>without the <span class="vp-mark">wear.</span></h3>
+          <p class="vp-step__lede vp-rise" data-d="1">Self-powered, low-impact. The body's ready before the start line — without pounding asphalt or hot turf.</p>
+          <p class="vp-step__body vp-rise" data-d="2">Loosens joints, primes muscles, and burns off the stand-around energy that competition mornings always have.</p>
+          <div class="vp-step__photos vp-rise" data-d="3">
+            <div class="vp-step__photo"><span>Dog on slatmill</span></div>
+            <div class="vp-step__photo"><span>Slatmill detail</span></div>
+          </div>
+        </article>
+
+        <article class="vp-step" data-step="2">
+          <div class="vp-step__index">02 · Recovery</div>
+          <h3 class="vp-rise">Recovery<br>that <span class="vp-mark">hums.</span></h3>
+          <p class="vp-step__lede vp-rise" data-d="1">Pulsed electromagnetic field therapy mat. Circulation up, soreness down.</p>
+          <p class="vp-step__body vp-rise" data-d="2">Owners take the seat next door. Both of you exhale, both of you walk out lighter.</p>
+          <div class="vp-step__photos vp-rise" data-d="3">
+            <div class="vp-step__photo"><span>Dog on PEMF mat</span></div>
+            <div class="vp-step__photo"><span>Mat in trailer</span></div>
+          </div>
+        </article>
+
+        <article class="vp-step" data-step="3">
+          <div class="vp-step__index">03 · Sofa</div>
+          <h3 class="vp-rise">Real dogs.<br>Real <span class="vp-mark">stories.</span></h3>
+          <p class="vp-step__lede vp-rise" data-d="1">A two-seater inside the trailer where competitors share what's working.</p>
+          <p class="vp-step__body vp-rise" data-d="2">Live interviews, social cuts, the kind of word-of-mouth you can't fake — captured the moment it happens.</p>
+          <div class="vp-step__photos vp-rise" data-d="3">
+            <div class="vp-step__photo"><span>UGC interview</span></div>
+            <div class="vp-step__photo"><span>Inside the trailer</span></div>
+          </div>
+        </article>
+
+        <article class="vp-step" data-step="4">
+          <div class="vp-step__index">04 · Touchscreen</div>
+          <h3 class="vp-rise">Find your<br>dog's perfect <span class="vp-mark">dose.</span></h3>
+          <p class="vp-step__lede vp-rise" data-d="1">Tap through breed, weight and activity. The hub does the maths.</p>
+          <p class="vp-step__body vp-rise" data-d="2">FAQs, dosing guides, and a QR-coded next step you can take home in your pocket.</p>
+          <div class="vp-step__photos vp-rise" data-d="3">
+            <div class="vp-step__photo"><span>Owner using kiosk</span></div>
+            <div class="vp-step__photo"><span>Dose calculator screen</span></div>
+          </div>
+        </article>
+
+        <article class="vp-step" data-step="5">
+          <div class="vp-step__index">05 · Retail</div>
+          <h3 class="vp-rise">Antinol,<br>on the <span class="vp-mark">spot.</span></h3>
+          <p class="vp-step__lede vp-rise" data-d="1">The full Antinol® range — capsules and chews — stocked, scanned and in your hand.</p>
+          <p class="vp-step__body vp-rise" data-d="2">No "I'll order it Monday." Your dog needs it now — we have it now.</p>
+          <div class="vp-step__photos vp-rise" data-d="3">
+            <div class="vp-step__photo"><span>Pack on counter</span></div>
+            <div class="vp-step__photo"><span>Trailer retail shelf</span></div>
+          </div>
+        </article>
+
+        <article class="vp-step" data-step="6">
+          <div class="vp-step__index">06 · Outside</div>
+          <h3 class="vp-rise">A place to<br>stay <span class="vp-mark">a while.</span></h3>
+          <p class="vp-step__lede vp-rise" data-d="1">Marquee, water, shade, biscuits. Pull up a seat between rounds.</p>
+          <p class="vp-step__body vp-rise" data-d="2">The bit that turns a sponsor stall into somewhere people actually want to be.</p>
+          <div class="vp-step__photos vp-rise" data-d="3">
+            <div class="vp-step__photo"><span>Marquee setup</span></div>
+            <div class="vp-step__photo"><span>Dogs at event</span></div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+    <div class="vp-reveal__foot"></div>
+  </div>
+</section>
+
+
+<!-- ============== WHAT IS ANTINOL ============== -->
+<section class="vp-what" id="about">
+  <div class="vp-what__inner">
+    <div class="vp-what__copy">
+      <span class="vp-eyebrow vp-rise">What is Antinol?</span>
+      <h2 class="vp-rise" data-d="1">The <span class="vp-mark">100% natural</span><br>anti-inflammatory.</h2>
+      <p class="vp-rise" data-d="2">Antinol® Plus is a daily supplement for dogs and cats — a tiny softgel made from a patented marine lipid blend called <strong>EAB-277™</strong>. New Zealand green-lipped mussel and high-phospholipid Antarctic krill oil, working together to support joint comfort, mobility, skin and coat health.</p>
+      <p class="vp-rise" data-d="3">No fillers. No preservatives. Made in New Zealand. Vet-recommended, with a 60-day money-back guarantee on every starter pack.</p>
+      <div class="vp-what__stats vp-rise" data-d="4">
+        <div class="vp-what__stat"><b>90+</b><span>Free fatty acids</span></div>
+        <div class="vp-what__stat"><b>6 wks</b><span>Avg. mobility gain</span></div>
+        <div class="vp-what__stat"><b>60 day</b><span>Money-back trial</span></div>
+      </div>
+      <a class="vp-btn vp-btn--ghost vp-rise" data-d="5" href="https://vetzpetz.com.au/products/antinol-plus-for-dogs" style="margin-top:.6rem">Read the full story</a>
+    </div>
+
+    <div class="vp-what__visual vp-rise" data-d="2">
+      <img src="https://vetzpetz.com.au/cdn/shop/files/SDSP_FRONT_1680x.png?v=1752738481" alt="Antinol Plus Starter Pack" style="filter:drop-shadow(0 18px 26px rgba(26,46,59,.18));">
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== PILLARS ============== -->
+<section class="vp-pillars">
+  <div class="vp-pillars__inner">
+    <div class="vp-pillars__head">
+      <span class="vp-eyebrow vp-rise" style="color:var(--vp-yellow)">One capsule · Four jobs</span>
+      <h2 class="vp-rise" data-d="1">Built for the body that<br>does the work.</h2>
+    </div>
+    <div class="vp-pillars__list">
+      <div class="vp-pillars__row vp-rise">
+        <h3>Performance</h3>
+        <p>Joints that move, muscles that fire, recovery that doesn't drag into Monday.</p>
+      </div>
+      <div class="vp-pillars__row vp-rise" data-d="1">
+        <h3>Prevention</h3>
+        <p>Stay ahead of stiffness, inflammation and the slow drift toward old before their time.</p>
+      </div>
+      <div class="vp-pillars__row vp-rise" data-d="2">
+        <h3>Protection</h3>
+        <p>A daily layer of omega support for the cartilage, joints and skin doing the heavy lifting.</p>
+      </div>
+      <div class="vp-pillars__row vp-rise" data-d="3">
+        <h3>Recovery</h3>
+        <p>Bounce back from the trial, the trail, the long weekend.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== STARTER PACKS ============== -->
+<section class="vp-starter" id="starter">
+  <div class="vp-starter__inner">
+    <div class="vp-starter__head">
+      <div>
+        <span class="vp-eyebrow vp-rise">Starter packs</span>
+        <h2 class="vp-rise" data-d="1" style="margin-top:1rem">Try Antinol® Plus<br>risk-free.</h2>
+      </div>
+      <p class="vp-rise" data-d="2">Each starter pack ships with a free loading-dose pouch and a 60-day money-back guarantee.</p>
+    </div>
+
+    <div class="vp-products">
+
+      <div class="vp-product vp-rise">
+        <div class="vp-product__img">
+          <img src="https://vetzpetz.com.au/cdn/shop/files/SDSP_FRONT_1680x.png?v=1752738481" alt="Antinol 60-day Starter Pack — Small Dog" loading="lazy">
+        </div>
+        <div class="vp-product__name">60-day Starter Pack — Small Dog</div>
+        <div class="vp-product__sub">For dogs under 22kg. 60 capsules + free 15-capsule loading dose. 60-day money-back guarantee.</div>
+        <div class="vp-product__price">
+          <b>$65.00</b>
+          <span><s>$81.25</s> value · save $16.25</span>
+        </div>
+        <a class="vp-product__btn" href="https://vetzpetz.com.au/products/antinol-starter-kit-small-dog">Shop small dog</a>
+      </div>
+
+      <div class="vp-product vp-rise" data-d="1">
+        <span class="vp-product__badge">For sport dogs</span>
+        <div class="vp-product__img">
+          <img src="https://vetzpetz.com.au/cdn/shop/files/LDSP_FRONT_1680x.png?v=1752738495" alt="Antinol 60-day Starter Pack — Large Dog" loading="lazy">
+        </div>
+        <div class="vp-product__name">60-day Starter Pack — Large Dog</div>
+        <div class="vp-product__sub">For dogs over 22kg. 120 capsules + free 30-capsule loading dose. 60-day money-back guarantee.</div>
+        <div class="vp-product__price">
+          <b>$116.13</b>
+          <span><s>$148.63</s> value · save $32.50</span>
+        </div>
+        <a class="vp-product__btn" href="https://vetzpetz.com.au/products/antinol-starter-kit-large-dog">Shop large dog</a>
+      </div>
+
+    </div>
+
+    <div class="vp-starter__guarantee vp-rise">
+      <div>
+        <h4>60-day money-back guarantee</h4>
+        <p>If you don't see a difference in your dog within 60 days, we'll refund the lot. No questions, no fine print.</p>
+      </div>
+      <a class="vp-btn vp-btn--ghost" href="https://vetzpetz.com.au/pages/60-day-risk-free-trial">How it works</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== CTA STACK ============== -->
+<section class="vp-cta">
+  <div class="vp-cta__inner">
+    <div class="vp-cta__head">
+      <span class="vp-eyebrow vp-rise" style="color:var(--vp-yellow)">Roll with us</span>
+      <h2 class="vp-rise" data-d="1" style="margin-top:1rem">Three ways to come along<br>for the ride.</h2>
+      <p class="vp-rise" data-d="2">Win a starter pack, find us at an event, or stay close to what's coming next.</p>
+    </div>
+    <div class="vp-cta__stack">
+
+      <div class="vp-cta__card vp-cta__card--primary vp-rise">
+        <span class="vp-cta__tag">Scan to win</span>
+        <h3>Win a 12-month supply.</h3>
+        <p>One winner each month, every month we're on the road. Drop your details and you're in the draw.</p>
+        <a class="vp-btn vp-btn--white" href="#scan-form">Enter the draw</a>
+      </div>
+
+      <div class="vp-cta__card vp-rise" data-d="1">
+        <span class="vp-cta__tag">Try it</span>
+        <h3>Starter pack from $65.</h3>
+        <p>60 capsules, free loading-dose pouch, 60-day money-back guarantee.</p>
+        <a class="vp-btn vp-btn--white" href="#starter">Shop starter</a>
+      </div>
+
+      <div class="vp-cta__card vp-rise" data-d="2" id="scan-form">
+        <span class="vp-cta__tag">Stay close</span>
+        <h3>Get the inside line.</h3>
+        <p>Event updates, dose tips, behind-the-scenes from the trailer.</p>
+        <form class="vp-form" id="vp-form" novalidate>
+          <input type="email" placeholder="Email address" required>
+          <input type="text" placeholder="Your dog's name">
+          <input type="text" placeholder="Breed">
+          <button type="submit">Sign me up</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============== MERCH ============== -->
+<section class="vp-merch">
+  <div class="vp-merch__inner">
+    <div class="vp-merch__copy">
+      <h4>Pick up the merch. <span class="vp-mark">10% goes to local clubs.</span></h4>
+      <p>Caps, leads, dog-towels and tour tees at every stop. A portion of every sale goes back to the host club.</p>
+    </div>
+    <a class="vp-btn vp-btn--ghost" href="#">See the merch drop</a>
+  </div>
+</section>
+
+
+<!-- ============== FOOTER ============== -->
+<footer class="vp-foot">
+  <div class="vp-foot__inner">
+    <div class="vp-foot__brand">
+      <svg class="vp-foot__logo" role="img" aria-label="Vetz Petz"><use href="#vp-logo"/></svg>
+      <p>Antinol® on Tour 2026. A Vetz Petz initiative for the K9 sporting community. Joint + Skin + Coat. The 100% natural anti-inflammatory.</p>
+      <span class="vp-foot__url">antinol.com.au/trailer</span>
+    </div>
+    <div>
+      <h5>The Tour</h5>
+      <ul>
+        <li><a href="#events">Events calendar</a></li>
+        <li><a href="#trailer">Inside the trailer</a></li>
+        <li><a href="#about">What is Antinol?</a></li>
+        <li><a href="#starter">Starter packs</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5>Vetz Petz</h5>
+      <ul>
+        <li><a href="https://vetzpetz.com.au">vetzpetz.com.au</a></li>
+        <li><a href="https://vetzpetz.com.au/pages/60-day-risk-free-trial">60-day guarantee</a></li>
+        <li><a href="https://vetzpetz.com.au/products/antinol-plus-for-dogs">Antinol® Plus for dogs</a></li>
+        <li><a href="https://vetzpetz.com.au/products/antinol-plus-for-cats">Antinol® Plus for cats</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="vp-foot__bottom">
+    <span>© 2026 Vetz Petz · Antinol®. Made in New Zealand.</span>
+    <span>Keep Happiness in Motion</span>
+    <span class="vp-foot__version">Splash v6.4</span>
+  </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+  document.body.classList.add('is-loaded');
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  /* ---------- UTM capture for QR tracking ---------- */
+  (function captureSource(){
+    const params = new URLSearchParams(window.location.search);
+    const src = params.get('utm_source') || params.get('source');
+    if (!src) return;
+    try { sessionStorage.setItem('vp_qr_source', src); } catch(e){}
+    const form = document.getElementById('vp-form');
+    if (form && !form.querySelector('input[name="utm_source"]')){
+      const i = document.createElement('input');
+      i.type = 'hidden'; i.name = 'utm_source'; i.value = src;
+      form.appendChild(i);
+    }
+  })();
+
+  /* ---------- Nav scroll state ---------- */
+  const nav = document.getElementById('vp-nav');
+  ScrollTrigger.create({
+    start: 'top -40',
+    end: 99999,
+    onUpdate: self => nav.classList.toggle('is-scrolled', self.scroll() > 40)
+  });
+
+  /* ---------- Reveal-on-scroll ---------- */
+  const rises = document.querySelectorAll('.vp-rise');
+  const ioRise = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-in');
+        ioRise.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  rises.forEach(el => ioRise.observe(el));
+
+  /* ---------- Trailer video — scrub through scroll on all viewports ---------- */
+  const video = document.getElementById('vp-trailer-video');
+  const progress = document.getElementById('vp-progress');
+  const stepEls = gsap.utils.toArray('.vp-step');
+
+  function setupVideoScrub() {
+    if (!video.duration || isNaN(video.duration)) return;
+    video.pause();
+    try { video.currentTime = 0; } catch(e){}
+
+    ScrollTrigger.create({
+      id: 'video-scrub',
+      trigger: '.vp-reveal',
+      start: 'top 70%',
+      end: 'bottom bottom',
+      scrub: 0.5,
+      onUpdate: self => {
+        const t = video.duration * self.progress;
+        if (Number.isFinite(t)) {
+          try { video.currentTime = t; } catch(e){}
+        }
+      }
+    });
+  }
+
+  if (video.readyState >= 1) {
+    setupVideoScrub();
+  } else {
+    video.addEventListener('loadedmetadata', setupVideoScrub, { once: true });
+  }
+
+  // iOS sometimes needs a nudge before currentTime accepts non-zero values
+  document.addEventListener('touchstart', () => {
+    if (video.paused) {
+      video.play().then(() => video.pause()).catch(()=>{});
+    }
+  }, { once: true, passive: true });
+
+  /* ---------- Step → progress indicator + (in case the video isn't seeking) fallback ---------- */
+  stepEls.forEach((el) => {
+    ScrollTrigger.create({
+      trigger: el,
+      start: 'top 60%',
+      end: 'bottom 40%',
+      onEnter: () => progress.dataset.progress = el.dataset.step,
+      onEnterBack: () => progress.dataset.progress = el.dataset.step
+    });
+  });
+
+  /* ---------- Mock form ---------- */
+  document.getElementById('vp-form').addEventListener('submit', e => {
+    e.preventDefault();
+    e.target.innerHTML = '<p style="color:#fff;font-size:.95rem;line-height:1.5;">You\'re in. See you at the trailer.</p>';
+  });
+
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+</script>
+
+</body>
+</html>
