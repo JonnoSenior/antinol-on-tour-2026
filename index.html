@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Antinol on Tour splash · v6.5 · 2026-04-27 -->
+<!-- Antinol on Tour splash · v6.6 · 2026-04-27 -->
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
@@ -138,10 +138,17 @@
   .vp-svg-defs{position:absolute;width:0;height:0;pointer-events:none;overflow:hidden}
   .vp-nav__tour{
     font-weight:800;font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;
-    color:var(--vp-navy);
-    padding-left:14px;border-left:1px solid var(--vp-rule-strong);
+    /* White by default to read over the dark hero bg-video.
+       Switches to navy once the nav locks white on scroll. */
+    color:#fff;
+    padding-left:14px;border-left:1px solid rgba(255,255,255,.35);
     display:flex;align-items:center;gap:.5rem;
     white-space:nowrap;
+    transition:color .3s var(--vp-ease), border-color .3s var(--vp-ease);
+  }
+  .vp-nav.is-scrolled .vp-nav__tour{
+    color:var(--vp-navy);
+    border-left-color:var(--vp-rule-strong);
   }
   .vp-nav__tour i{width:6px;height:6px;background:var(--vp-red);border-radius:50%;display:inline-block}
   .vp-nav__cta{
@@ -157,70 +164,89 @@
   }
 
   /* ===== HERO ===== */
+  /* Full-bleed background-video hero (v6.6).
+     Old split-column hero archived at archive/hero-v6.5.html. */
   .vp-hero{
-    position:relative;background:#fff;
-    padding:calc(var(--vp-nav-h) + 30px) var(--vp-gutter) clamp(40px,6vh,80px);
+    position:relative;
+    background:var(--vp-ink);
+    padding:calc(var(--vp-nav-h) + 60px) var(--vp-gutter) clamp(80px,12vh,140px);
     overflow:hidden;
+    min-height:100svh;
+    display:flex;
+    align-items:center;
+    color:#fff;
+    isolation:isolate;
+  }
+  .vp-hero__bg-video{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    z-index:-2;
+    pointer-events:none;
+  }
+  .vp-hero__overlay{
+    position:absolute;inset:0;
+    z-index:-1;
+    pointer-events:none;
+    background:
+      linear-gradient(105deg,
+        rgba(13,24,32,.82) 0%,
+        rgba(13,24,32,.58) 38%,
+        rgba(13,24,32,.30) 70%,
+        rgba(13,24,32,.45) 100%),
+      linear-gradient(180deg,
+        rgba(13,24,32,.55) 0%,
+        rgba(13,24,32,.10) 30%,
+        rgba(13,24,32,.20) 65%,
+        rgba(13,24,32,.85) 100%);
   }
   .vp-hero__inner{
+    position:relative;
     max-width:var(--vp-maxw);margin:0 auto;
+    width:100%;
     display:grid;grid-template-columns:1fr;gap:clamp(28px,4vw,56px);
     align-items:center;
   }
-  @media (min-width:980px){
-    .vp-hero__inner{grid-template-columns:1.05fr 1.1fr}
-  }
 
-  .vp-hero__copy{display:flex;flex-direction:column;gap:1.4rem;max-width:620px}
+  .vp-hero__copy{display:flex;flex-direction:column;gap:1.4rem;max-width:720px}
   .vp-hero__copy h1{
-    font-size:clamp(2rem, 5.8vw, 4.2rem);
-    color:var(--vp-navy);
+    font-size:clamp(2.4rem, 6.6vw, 5rem);
+    color:#fff;
     letter-spacing:-.028em;line-height:.96;
+    text-shadow:0 2px 28px rgba(0,0,0,.35);
   }
   .vp-hero__sub{
     font-size:clamp(1.15rem, 2.2vw, 1.7rem);
-    color:var(--vp-charcoal);
+    color:rgba(255,255,255,.94);
     font-weight:700;
     line-height:1.25;
     letter-spacing:-.01em;
     margin-top:-.4rem;
+    text-shadow:0 1px 14px rgba(0,0,0,.45);
   }
   .vp-hero__lede{
     font-size:clamp(1rem,1.4vw,1.15rem);
-    color:var(--vp-charcoal);line-height:1.55;max-width:540px;
+    color:rgba(255,255,255,.88);
+    line-height:1.55;max-width:560px;
     font-weight:500;
+    text-shadow:0 1px 12px rgba(0,0,0,.4);
   }
   .vp-hero__meta{
     display:flex;gap:32px;flex-wrap:wrap;
     padding:18px 0;
-    border-top:1px solid var(--vp-rule);
-    border-bottom:1px solid var(--vp-rule);
+    border-top:1px solid rgba(255,255,255,.22);
+    border-bottom:1px solid rgba(255,255,255,.22);
   }
   .vp-hero__metric{display:flex;flex-direction:column;gap:2px}
   .vp-hero__metric b{
     font-size:clamp(1.6rem,3vw,2.2rem);
-    font-weight:900;color:var(--vp-navy);line-height:1;letter-spacing:-.025em;
+    font-weight:900;color:#fff;line-height:1;letter-spacing:-.025em;
   }
   .vp-hero__metric span{
     font-size:.7rem;font-weight:700;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--vp-charcoal-soft);
+    text-transform:uppercase;color:rgba(255,255,255,.7);
   }
   .vp-hero__cta{display:flex;flex-wrap:wrap;gap:.7rem}
-
-  .vp-hero__visual{
-    position:relative;
-    aspect-ratio: 16 / 10;
-    width:100%;
-    border-radius:var(--vp-radius-lg);
-    overflow:hidden;
-    background:var(--vp-grey);
-    box-shadow:0 28px 32px rgba(26,46,59,.18);
-  }
-  .vp-hero__video{
-    position:absolute;inset:0;
-    width:100%;height:100%;
-    object-fit:cover;
-  }
 
   /* word-by-word reveal */
   .vp-words{display:inline}
@@ -820,8 +846,13 @@
 </nav>
 
 
-<!-- ============== HERO ============== -->
+<!-- ============== HERO (v6.6 — full-bleed bg video; v6.5 archived at archive/hero-v6.5.html) ============== -->
 <section class="vp-hero">
+  <video class="vp-hero__bg-video" autoplay loop muted playsinline preload="auto" aria-hidden="true">
+    <source src="https://cdn.shopify.com/videos/c/o/v/c188a2b2fdea412886d7aaac3645be99.mp4" type="video/mp4">
+  </video>
+  <div class="vp-hero__overlay"></div>
+
   <div class="vp-hero__inner">
     <div class="vp-hero__copy">
       <span class="vp-eyebrow vp-rise" data-d="1">Antinol on Tour · 2026</span>
@@ -846,12 +877,6 @@
         <a class="vp-btn vp-btn--red" href="#events">View the calendar</a>
         <a class="vp-btn vp-btn--ghost" href="#trailer">See inside the trailer</a>
       </div>
-    </div>
-
-    <div class="vp-hero__visual vp-rise" data-d="3">
-      <video class="vp-hero__video" autoplay loop muted playsinline preload="auto" poster="">
-        <source src="https://cdn.shopify.com/videos/c/o/v/56c601227c674c70b7b09db80a7b4522.mp4" type="video/mp4">
-      </video>
     </div>
   </div>
 </section>
@@ -1237,7 +1262,7 @@
   <div class="vp-foot__bottom">
     <span>© 2026 Vetz Petz · Antinol®. Made in New Zealand.</span>
     <span>Keep Happiness in Motion</span>
-    <span class="vp-foot__version">Splash v6.5</span>
+    <span class="vp-foot__version">Splash v6.6</span>
   </div>
 </footer>
 
