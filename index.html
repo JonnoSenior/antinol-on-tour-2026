@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Antinol on Tour splash · v6.8 · 2026-04-27 -->
+<!-- Antinol on Tour splash · v6.9 · 2026-04-27 -->
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
@@ -392,13 +392,16 @@
   }
 
   /* Sticky left column — pins heading + video as a single unit while
-     the steps on the right scroll past. */
+     the steps on the right scroll past. Pinned flush with the nav
+     (no gap) so previous-section text can't peek through above the
+     heading on mobile; breathing room handled by internal padding. */
   .vp-reveal__left{
     position:sticky;
-    top:calc(var(--vp-nav-h) + 12px);
+    top:var(--vp-nav-h);
     align-self:start;
     background:var(--vp-grey);
     z-index:2;
+    padding-top:clamp(14px,2.4vh,22px);
     padding-bottom:clamp(20px,4vh,32px);
   }
 
@@ -1271,7 +1274,7 @@
   <div class="vp-foot__bottom">
     <span>© 2026 Vetz Petz · Antinol®. Made in New Zealand.</span>
     <span>Keep Happiness in Motion</span>
-    <span class="vp-foot__version">Splash v6.8</span>
+    <span class="vp-foot__version">Splash v6.9</span>
   </div>
 </footer>
 
