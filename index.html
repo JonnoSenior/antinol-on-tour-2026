@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Antinol on Tour splash · v6.15 · 2026-04-28 -->
+<!-- Antinol on Tour splash · v6.16 · 2026-04-28 -->
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
@@ -648,7 +648,7 @@
     gap:32px;flex-wrap:wrap;margin-bottom:clamp(36px,6vh,60px);
   }
   .vp-starter__head h2{
-    font-size:clamp(2rem,5.5vw,4rem);color:var(--vp-navy);max-width:680px;
+    font-size:clamp(1.7rem,4.5vw,3.2rem);color:var(--vp-navy);max-width:680px;
     line-height:1;letter-spacing:-.025em;
   }
   .vp-starter__head p{
@@ -662,8 +662,8 @@
   .vp-product{
     background:#fff;border:1px solid var(--vp-rule);
     border-radius:var(--vp-radius-lg);
-    padding:24px;
-    display:flex;flex-direction:column;gap:14px;
+    padding:18px;
+    display:flex;flex-direction:column;gap:12px;
     transition:transform .35s var(--vp-ease), box-shadow .35s var(--vp-ease), border-color .35s var(--vp-ease);
     position:relative;overflow:hidden;
   }
@@ -673,18 +673,21 @@
     border-color:var(--vp-rule-strong);
   }
   .vp-product__badge{
-    position:absolute;top:18px;right:18px;
+    position:absolute;top:14px;right:14px;
     background:var(--vp-yellow);color:var(--vp-ink);
-    padding:.3rem .6rem;border-radius:4px;
-    font-size:.65rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+    padding:.28rem .55rem;border-radius:4px;
+    font-size:.62rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
     z-index:2;
   }
   .vp-product__img{
-    aspect-ratio: 1 / 1;
+    /* Fixed-height image area (was aspect-ratio:1/1) so the card stays
+       compact regardless of column width — keeps both packs visible
+       in one viewport. */
+    height:clamp(200px,28vh,260px);
     background:var(--vp-grey);
     border-radius:var(--vp-radius);
     display:flex;align-items:center;justify-content:center;
-    overflow:hidden;padding:18px;
+    overflow:hidden;padding:8px;
   }
   .vp-product__img img{
     max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;
@@ -692,21 +695,21 @@
   }
   .vp-product:hover .vp-product__img img{transform:scale(1.04)}
   .vp-product__name{
-    font-size:1.1rem;color:var(--vp-navy);font-weight:800;
+    font-size:1rem;color:var(--vp-navy);font-weight:800;
     line-height:1.2;letter-spacing:-.01em;
   }
   .vp-product__sub{
-    font-size:.85rem;color:var(--vp-charcoal);line-height:1.5;font-weight:500;
+    font-size:.82rem;color:var(--vp-charcoal);line-height:1.5;font-weight:500;
   }
   .vp-product__price{
     display:flex;align-items:baseline;gap:.6rem;flex-wrap:wrap;
-    margin-top:auto;padding-top:6px;
+    margin-top:auto;padding-top:4px;
   }
   .vp-product__price b{
-    font-size:1.6rem;font-weight:900;color:var(--vp-navy);letter-spacing:-.02em;
+    font-size:1.4rem;font-weight:900;color:var(--vp-navy);letter-spacing:-.02em;
   }
   .vp-product__price span{
-    font-size:.78rem;color:var(--vp-charcoal-soft);font-weight:600;
+    font-size:.76rem;color:var(--vp-charcoal-soft);font-weight:600;
   }
   .vp-product__price s{
     color:var(--vp-charcoal-soft);text-decoration-thickness:1.5px;
@@ -715,8 +718,8 @@
   .vp-product__btn{
     display:flex;justify-content:space-between;align-items:center;
     background:var(--vp-navy);color:#fff;
-    padding:.85rem 1.05rem;border-radius:999px;
-    font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+    padding:.7rem 1rem;border-radius:999px;
+    font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
     transition:background .25s var(--vp-ease);
   }
   .vp-product__btn:hover{background:var(--vp-ink)}
@@ -726,16 +729,23 @@
     margin-top:24px;
     background:var(--vp-grey);border:1px solid var(--vp-rule);
     border-radius:var(--vp-radius-lg);
-    padding:24px 26px;
+    padding:20px 24px;
     display:flex;justify-content:space-between;align-items:center;
     gap:20px;flex-wrap:wrap;
   }
+  .vp-starter__guarantee-content{
+    display:flex;align-items:center;gap:18px;flex:1;min-width:0;
+  }
+  .vp-starter__guarantee-img{
+    width:64px;height:64px;
+    object-fit:contain;flex-shrink:0;
+  }
   .vp-starter__guarantee h4{
-    font-size:1.1rem;font-weight:800;color:var(--vp-navy);
+    font-size:1rem;font-weight:800;color:var(--vp-navy);
     margin-bottom:.25rem;letter-spacing:-.01em;
   }
   .vp-starter__guarantee p{
-    font-size:.88rem;color:var(--vp-charcoal);font-weight:500;
+    font-size:.85rem;color:var(--vp-charcoal);font-weight:500;
   }
 
   /* ===== CTA ===== */
@@ -747,7 +757,7 @@
   .vp-cta__inner{max-width:var(--vp-maxw);margin:0 auto;position:relative}
   .vp-cta__head{margin-bottom:clamp(40px,7vh,80px);max-width:760px}
   .vp-cta__head h2{
-    font-size:clamp(2.2rem,6.5vw,5rem);color:#fff;
+    font-size:clamp(1.85rem,5.2vw,3.8rem);color:#fff;
     margin-bottom:.4em;line-height:1;letter-spacing:-.025em;
   }
   .vp-cta__head p{color:#aab4bd;font-size:1.05rem;max-width:520px;line-height:1.6;font-weight:500}
@@ -773,7 +783,7 @@
   }
   .vp-cta__card--primary .vp-cta__tag{color:#ffffff;opacity:.9}
   .vp-cta__card h3{
-    font-size:clamp(1.6rem,2.8vw,2.1rem);color:#fff;
+    font-size:clamp(1.35rem,2.4vw,1.75rem);color:#fff;
     line-height:1.05;letter-spacing:-.02em;
   }
   .vp-cta__card p{color:#aab4bd;font-size:.95rem;line-height:1.55;flex:1;font-weight:500}
@@ -811,7 +821,7 @@
   }
   .vp-merch__copy{display:flex;flex-direction:column;gap:.3rem;max-width:600px}
   .vp-merch__copy h4{
-    font-size:1.4rem;color:var(--vp-navy);font-weight:800;letter-spacing:-.015em;line-height:1.15;
+    font-size:1.2rem;color:var(--vp-navy);font-weight:800;letter-spacing:-.015em;line-height:1.15;
   }
   .vp-merch__copy p{font-size:.9rem;color:var(--vp-charcoal);line-height:1.5}
 
@@ -1177,7 +1187,7 @@
 
       <div class="vp-product vp-rise">
         <div class="vp-product__img">
-          <img src="https://vetzpetz.com.au/cdn/shop/files/SDSP_FRONT_1680x.png?v=1752738481" alt="Antinol 60-day Starter Pack — Small Dog" loading="lazy">
+          <img src="https://vetzpetz.com.au/cdn/shop/files/ANT25B_ProductImages_Quotes_4000x4000px_Bently_SmallStarterPack.png?v=1752738481&width=750" alt="Bently — 60-day Starter Pack, Small Dog" loading="lazy">
         </div>
         <div class="vp-product__name">60-day Starter Pack — Small Dog</div>
         <div class="vp-product__sub">For dogs under 22kg. 60 capsules + free 15-capsule loading dose. 60-day money-back guarantee.</div>
@@ -1191,7 +1201,7 @@
       <div class="vp-product vp-rise" data-d="1">
         <span class="vp-product__badge">Most popular</span>
         <div class="vp-product__img">
-          <img src="https://vetzpetz.com.au/cdn/shop/files/LDSP_FRONT_1680x.png?v=1752738495" alt="Antinol 60-day Starter Pack — Large Dog" loading="lazy">
+          <img src="https://vetzpetz.com.au/cdn/shop/files/ANT25B_ProductImages_Quotes_4000x4000px_Swayze_MissFlare_LargeStarterPack.png?v=1752738495&width=750" alt="Swayze & Miss Flare — 60-day Starter Pack, Large Dog" loading="lazy">
         </div>
         <div class="vp-product__name">60-day Starter Pack — Large Dog</div>
         <div class="vp-product__sub">For dogs over 22kg. 120 capsules + free 30-capsule loading dose. 60-day money-back guarantee.</div>
@@ -1205,9 +1215,12 @@
     </div>
 
     <div class="vp-starter__guarantee vp-rise">
-      <div>
-        <h4>60-day money-back guarantee</h4>
-        <p>If you don't see a difference in your dog within 60 days, we'll refund the lot. No questions, no fine print.</p>
+      <div class="vp-starter__guarantee-content">
+        <img class="vp-starter__guarantee-img" src="https://vetzpetz.com.au/cdn/shop/files/60_Day_White_Bk.png?v=1752739182" alt="60-day money-back guarantee badge">
+        <div>
+          <h4>60-day money-back guarantee</h4>
+          <p>If you don't see a difference in your dog within 60 days, we'll refund the lot. No questions, no fine print.</p>
+        </div>
       </div>
       <a class="vp-btn vp-btn--ghost" href="https://vetzpetz.com.au/pages/60-day-risk-free-trial">How it works</a>
     </div>
@@ -1298,7 +1311,7 @@
   <div class="vp-foot__bottom">
     <span>© 2026 Vetz Petz · Antinol®. Made in New Zealand.</span>
     <span>Keep Happiness in Motion</span>
-    <span class="vp-foot__version">Splash v6.15</span>
+    <span class="vp-foot__version">Splash v6.16</span>
   </div>
 </footer>
 
