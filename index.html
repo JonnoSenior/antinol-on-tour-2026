@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- Antinol on Tour splash · v6.10 · 2026-04-27 -->
+<!-- Antinol on Tour splash · v6.11 · 2026-04-28 -->
 <html lang="en-AU">
 <head>
 <meta charset="utf-8">
@@ -39,6 +39,16 @@
 
   *,*::before,*::after{box-sizing:border-box}
   html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+  /* Mobile type scale (v6.11): drop the root from 16px to 14px so
+     1rem = 14px on phones. All rem-based copy scales down with it
+     (body ~14, lede ~14, step body ~13, eyebrows tighter), while
+     headings using clamp() with rem floors get a proportionally
+     smaller minimum but keep their vw-driven mid-range. Frees up
+     viewport real estate so the sticky reveal column doesn't
+     dominate, and step copy gets more room to scroll. */
+  @media (max-width:760px){
+    html{font-size:87.5%}
+  }
   body{
     margin:0;
     font-family:var(--vp-font);
@@ -1286,7 +1296,7 @@
   <div class="vp-foot__bottom">
     <span>© 2026 Vetz Petz · Antinol®. Made in New Zealand.</span>
     <span>Keep Happiness in Motion</span>
-    <span class="vp-foot__version">Splash v6.10</span>
+    <span class="vp-foot__version">Splash v6.11</span>
   </div>
 </footer>
 
